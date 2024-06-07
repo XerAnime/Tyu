@@ -1,0 +1,46 @@
+<body>
+        <div id="container" style="width: 100%">
+            <h1>Sidebar Template</h1>
+            <p>Similar to showing Disqus after a click, load the Disqus Universal Code into a sidebar that is hidden by default until the user interacts with it.</p>
+            <button id="disqus-button">Show Comments</button>
+        </div>
+
+        <div id="disqus-sidebar-backdrop" class="hidden"></div>
+        <div id="disqus-sidebar-container" class="hidden">
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                */
+
+                var disqus_config = function () {
+                    this.page.url = 'https://example.com';  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = 'example'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    this.page.title = 'Title example';
+                };
+
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//kaffepausen.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+
+                var doc = window.document;
+                var isHidden = true;
+                var container = doc.getElementById('disqus-sidebar-container');
+                var button = doc.getElementById('disqus-button');
+                var backdrop = doc.getElementById('disqus-sidebar-backdrop');
+                var toggleDisqusSidebar = function () {
+                    backdrop.className = isHidden ? 'visible' : 'hidden';
+                    container.className = isHidden ? 'visible' : 'hidden';
+                    isHidden = !isHidden;
+                };
+                backdrop.onclick = toggleDisqusSidebar;
+                button.onclick = toggleDisqusSidebar;
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>
+    </body>
+</html>
